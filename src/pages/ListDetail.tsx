@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useParams, useNavigate, Link } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import { useAuth } from '@/context/AuthContext'
 import { supabase } from '@/lib/supabase'
 import type { List, Item } from '@/types/database'
@@ -7,7 +7,6 @@ import type { List, Item } from '@/types/database'
 export default function ListDetail() {
   const { id } = useParams<{ id: string }>()
   const { user } = useAuth()
-  const navigate = useNavigate()
 
   const [list, setList] = useState<List | null>(null)
   const [items, setItems] = useState<Item[]>([])
